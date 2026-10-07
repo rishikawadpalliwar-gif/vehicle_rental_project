@@ -1,3 +1,9 @@
+
+🚀 Live App
+
+""Open App" (https://img.shields.io/badge/🚀%20OPEN%20APP-Vehicle%20Rental%20Management%20System-brightgreen?style=for-the-badge)" (https://rishikawadpalliwar-gif.github.io/vehicle_rental_project/)
+
+Vehicle Rental Management System
 # Vehicle Rental Management System
 
 A simple DBMS mini project built with **Python Flask, MySQL, HTML and CSS**.
