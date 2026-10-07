@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Vehicle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">🚗 Vehicle Rental</div>
+    <div><a href="/">Home</a><a href="/vehicles">Vehicles</a><a href="/booking">Bookings</a></div>
+</nav>
+
+<div class="container">
+    <div class="form-card">
+        <h1>Book a Vehicle</h1>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+            <label>Customer</label>
+            <select name="customer_id" required>
+                <option value="">Select Customer</option>
+                {% for customer in customers %}
+                    <option value="{{ customer.customer_id }}">{{ customer.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Vehicle</label>
+            <select name="vehicle_id" required>
+                <option value="">Select Vehicle</option>
+                {% for vehicle in vehicles %}
+                    <option value="{{ vehicle.vehicle_id }}">
+                        {{ vehicle.brand }} {{ vehicle.model }} - ₹{{ vehicle.rental_price_per_day }}/day
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>Rental Date</label>
+            <input type="date" name="rental_date" required>
+
+            <label>Return Date</label>
+            <input type="date" name="return_date" required>
+
+            <br><br>
+            <button class="btn" type="submit">Book Vehicle</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

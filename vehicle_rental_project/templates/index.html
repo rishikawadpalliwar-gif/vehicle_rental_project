@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Rental Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">🚗 Vehicle Rental</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/customer">Customer</a>
+        <a href="/rental">Rental</a>
+        <a href="/booking">Bookings</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="hero">
+        <h1>Vehicle Rental Management System</h1>
+        <p class="subtitle">Manage vehicles, customer and rental easily.</p>
+        <div class="cards">
+            <div class="card"><h3>🚘 Vehicles</h3><a class="btn" href="/vehicles">View Vehicles</a></div>
+            <div class="card"><h3>👤 Customers</h3><a class="btn" href="/customer">View Customer</a></div>
+            <div class="card"><h3>📋 Rental</h3><a class="btn" href="/rental">Book Vehicle</a></div>
+            <div class="card"><h3>📊 Bookings</h3><a class="btn" href="/booking">View Bookings</a></div>
+        </div>
+    </div>
+</div>
+<div class="footer">DBMS Mini Project</div>
+</body>
+</html>

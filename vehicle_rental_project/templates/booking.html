@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">🚗 Vehicle Rental</div>
+    <div><a href="/">Home</a><a href="/rental">Book Another Vehicle</a></div>
+</nav>
+
+<div class="container">
+    <h1>📋 Vehicle Bookings</h1>
+    <p class="subtitle">All rental booking records</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Rental ID</th>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Rental Date</th>
+                <th>Return Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.rental_id }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.brand }} {{ booking.model }}</td>
+                <td>{{ booking.rental_date }}</td>
+                <td>{{ booking.return_date }}</td>
+                <td>₹{{ booking.total_amount }}</td>
+                <td>{{ booking.status }}</td>
+                <td>
+                    {% if booking.status != 'Returned' %}
+                        <a class="btn" href="/return/{{ booking.rental_id }}">Return Vehicle</a>
+                    {% else %}
+                        Returned
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>
